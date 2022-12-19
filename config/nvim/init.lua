@@ -1,4 +1,4 @@
--- Install packer
+-- Install packer {{
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -6,7 +6,9 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
   vim.cmd [[packadd packer.nvim]]
 end
+-- }}
 
+-- Plugins {{
 require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
@@ -58,7 +60,10 @@ require('packer').startup(function(use)
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
+  -- }}
+  
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
+  -- Custom {{
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
     plugins(use)
@@ -68,6 +73,7 @@ require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
+-- }}
 
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
@@ -90,7 +96,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
--- [[ Setting options ]]
+-- [[ Setting options ]] {{{
 -- See `:help vim.o`
 
 -- Set highlight on search
@@ -113,7 +119,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 200
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
@@ -122,6 +128,7 @@ vim.cmd [[colorscheme gruvbox-baby]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+-- }}}
 
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key
@@ -322,6 +329,10 @@ local on_attach = function(_, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
+
+  -- My mappings
+  nmap('<leader>fe', ":tabnew $MYVIMRC", 'Open config in new tab')
+  nmap('<leader>fs', ":source $MYVIMRC", 'Source current nvimrc')
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
