@@ -1,3 +1,4 @@
 data
 .cache
 config/fish
+config/nvim/plugin/packer_compiled.lua
