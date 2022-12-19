@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/pradyumna/repos/nvim-alt/data/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["gruvbox-baby"] = {
+    loaded = true,
+    path = "/home/pradyumna/repos/nvim-alt/data/nvim/site/pack/packer/start/gruvbox-baby",
+    url = "https://github.com/luisiacc/gruvbox-baby"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/pradyumna/repos/nvim-alt/data/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -146,11 +151,6 @@ _G.packer_plugins = {
     path = "/home/pradyumna/repos/nvim-alt/data/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/home/pradyumna/repos/nvim-alt/data/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/pradyumna/repos/nvim-alt/data/nvim/site/pack/packer/start/packer.nvim",
@@ -178,11 +178,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/pradyumna/repos/nvim-alt/data/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-rhubarb"] = {
-    loaded = true,
-    path = "/home/pradyumna/repos/nvim-alt/data/nvim/site/pack/packer/start/vim-rhubarb",
-    url = "https://github.com/tpope/vim-rhubarb"
   },
   ["vim-sleuth"] = {
     loaded = true,
