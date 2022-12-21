@@ -42,25 +42,50 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
-  -- Git related plugins
+-- Appearences
+  -- use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+  -- use 'luisiacc/gruvbox-baby'
+  use 'ellisonleao/gruvbox.nvim' --  Color scheme
+  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use 'mhinz/vim-startify' --  Custom start screen
+
+-- Utility plugins
+  use 'jremmen/vim-ripgrep' --  Grep on steroids
+  use 'ThePrimeagen/harpoon' --  Bookmark management
+  use 'junegunn/vim-peekaboo' --  Preview registers
+  use 'machakann/vim-highlightedyank' --  Highlight yanked text
+  use 'easymotion/vim-easymotion' --  Move fast
+  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+  use 'tpope/vim-repeat' --  Repeat commands
+  use 'tpope/vim-surround' --  Surround text objects
+  use 'wellle/targets.vim' --  Additional text objects
+  use 'junegunn/vim-easy-align' --  Align text
+  use 'andrewradev/splitjoin.vim' --  Split/join lines
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+
+-- Comments
+  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  -- use 'tpope/vim-commentary'
+
+-- Git related plugins
   use 'tpope/vim-fugitive'
   -- use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
+  use 'ruanyl/vim-gh-line' --  Open GitHub file at line
+  --use 'junegunn/gv.vim' --  Git commit browser
 
-  -- use 'navarasu/onedark.nvim' -- Theme inspired by Atom
-  use 'luisiacc/gruvbox-baby'
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
-  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+-- Coding
+  use 'janko-m/vim-test' --  Run tests quickly
 
-  -- Fuzzy Finder (files, lsp, etc)
+-- files
+  use 'tpope/vim-vinegar'
+-- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+-- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
-  -- }}
+-- }}
   
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   -- Custom {{
@@ -124,7 +149,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme gruvbox-baby]]
+vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -161,7 +186,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'onedark',
+    theme = 'gruvbox',
     component_separators = '|',
     section_separators = '',
   },
@@ -307,9 +332,6 @@ local on_attach = function(_, bufnr)
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
-
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
