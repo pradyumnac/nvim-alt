@@ -44,9 +44,9 @@ require('packer').startup(function(use)
 -- }}}
 
 -- Appearences
-  -- use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   -- use 'luisiacc/gruvbox-baby'
-  use 'ellisonleao/gruvbox.nvim' --  Color scheme
+ -- use 'ellisonleao/gruvbox.nvim' --  Color scheme
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'mhinz/vim-startify' --  Custom start screen
 
@@ -150,7 +150,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme onedark]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
