@@ -1,0 +1,12 @@
+[submodule "CodeArt"]
+	path = CodeArt
+	url = https://github.com/artart222/CodeArt
+[submodule "web-dev.nvim"]
+	path = web-dev.nvim
+	url = https://github.com/jonathandion/web-dev.nvim
+[submodule "NvChad"]
+	path = NvChad
+	url = https://github.com/NvChad/NvChad
+[submodule "kickstart.nvim"]
+	path = kickstart.nvim
+	url = https://github.com/nvim-lua/kickstart.nvim
