@@ -46,7 +46,10 @@ require('packer').startup(function(use)
 -- Appearences
   -- use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'gruvbox-community/gruvbox'  -- Plug 'ellisonleao/gruvbox.nvim' 
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   use 'mhinz/vim-startify' --  Custom start screen
 
 -- Utility plugins
@@ -185,7 +188,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'gruvbox',
     component_separators = '|',
     section_separators = '',
