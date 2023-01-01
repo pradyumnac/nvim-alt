@@ -12,7 +12,7 @@ end
 require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
-  -- use 'dstein64/vim-startuptime'
+  use 'dstein64/vim-startuptime'
 
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
